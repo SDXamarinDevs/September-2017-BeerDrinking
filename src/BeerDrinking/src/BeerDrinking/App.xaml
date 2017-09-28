@@ -28,7 +28,7 @@
                 <Setter Property="TextColor" Value="{StaticResource NavigationText}" />
             </Style>
 
-            <converters:DateTimeToYearConverter x:Key="dateTimeToYearConverter" />
+            <converters:DateTimeToYearConverter x:Key="DateTimeToYearConverter" />
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

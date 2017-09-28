@@ -30,7 +30,7 @@ namespace BeerDrinking.ViewModels
 
         public override void OnNavigatingTo(NavigationParameters parameters)
         {
-            // TODO: Get the Brewer from the Navigation Parameters and Add/Replace the Beers
+            // TODO: Get the Brewer from the Navigation Parameters and Add/Replace the Beers from the Brewer's Beers
         }
 
         private async void OnBeerSelectedCommandExecuted(Beer beer)

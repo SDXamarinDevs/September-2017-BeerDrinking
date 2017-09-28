@@ -5,6 +5,7 @@
              Title="{Binding Title}"
              x:Class="BeerDrinking.Views.AddBreweryPage">
 
-    <!-- TODO: // Add Some Content -->
+    <!-- TODO: Add Some Content -->
+    <!-- If using an Entry for the InBusinessSince you can use the DateTimeToYearConverter -->
 
 </ContentPage>

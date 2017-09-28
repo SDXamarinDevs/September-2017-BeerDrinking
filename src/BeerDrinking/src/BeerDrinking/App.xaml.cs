@@ -43,9 +43,6 @@ namespace BeerDrinking
 
         protected override void RegisterTypes()
         {
-
-            // TODO: Register Realm with a Factory method that will use either the Default or Sync Configuration
-
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<SplashScreenPage>();
             // Navigating to "TabbedPage?tab=ViewA&tab=ViewB&tab=ViewC will generate a TabbedPage
