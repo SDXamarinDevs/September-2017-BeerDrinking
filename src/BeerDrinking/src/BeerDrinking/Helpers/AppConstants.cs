@@ -1,6 +1,6 @@
-﻿using System;
+﻿//using System;
 using Realms;
-using Realms.Sync;
+//using Realms.Sync;
 
 namespace BeerDrinking.Helpers
 {
@@ -9,11 +9,11 @@ namespace BeerDrinking.Helpers
         // Put constants here that are not of a sensitive nature
         public const string DynamicTabKey = "tab";
 
-        public static RealmConfigurationBase RealmConfiguration
+        public static RealmConfiguration RealmConfiguration
         {
             get
             {
-                return RealmConfiguration.Default;
+                return RealmConfiguration.DefaultConfiguration;
             }
         }
     }
