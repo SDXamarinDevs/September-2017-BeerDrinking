@@ -18,12 +18,13 @@ namespace BeerDrinking.ViewModels
 
         public override async void OnNavigatedTo(NavigationParameters parameters)
         {
+            // TODO: To enable Sync create User Credentials and Login
 
             var realm = Realm.GetInstance(Helpers.AppConstants.RealmConfiguration);
             realm.Seed();
 
             // TODO: Make a call to the Navigation Service.
-            // NOTE: You will need to Specify the NavigationPage as the before the landing page...
+            // NOTE: You will need to Specify the NavigationPage before the landing page...
         }
     }
 }
