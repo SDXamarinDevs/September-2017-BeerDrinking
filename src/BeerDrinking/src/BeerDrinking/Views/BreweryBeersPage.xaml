@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             Title="{Binding Title}"
+             Icon="fa-beer"
+             x:Class="BeerDrinking.Views.BreweryBeersPage">
+
+    <ListView ItemsSource="{Binding Beers}"
+              HasUnevenRows="True">
+        <ListView.Behaviors>
+            <behaviors:EventToCommandBehavior Command="{Binding BeerSelectedCommand}"
+                                              EventName="ItemTapped"
+                                              EventArgsParameterPath="Item" />
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}" Detail="{Binding Style}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

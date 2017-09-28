@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             Title="{Binding Title}"
+             Icon="fa-dashboard"
+             x:Class="BeerDrinking.Views.BreweryDetailPage">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <ffimageloading:CachedImage Source="{Binding Model.Logo}"
+                                        HorizontalOptions="Center"
+                                        WidthRequest="300"
+                                        DownsampleToViewSize="True" />
+
+            <Label Text="{Binding Model.Name}"
+                   FontSize="Large"
+                   FontAttributes="Bold" />
+
+            <Label Text="{Binding Model.Location}" />
+            
+            <Label Text="{Binding Model.InBusinessSince,StringFormat='In Business Since: {0:yyyy}'}"
+                   FontSize="Small"
+                   FontAttributes="Italic" />
+
+            <BoxView BackgroundColor="{StaticResource PrimaryDark}"
+                     Margin="10,20"
+                     HeightRequest="1"/>
+            
+            <Label Text="{Binding Model.About}"
+                   LineBreakMode="WordWrap" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

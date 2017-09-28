@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+                  xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+                  Title="{Binding Title}"
+                  x:Name="view"
+                  x:Class="BeerDrinking.Views.MainPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <ContentPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <OnPlatform.Platforms>
+                        <On Platform="iOS, Android, macOS" Value="hamburger.png" />
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </ContentPage.Icon>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout BackgroundColor="{StaticResource PrimaryDark}"
+                             Padding="20">
+
+                    <iconize:IconLabel Text="fa-user"
+                                       TextColor="{StaticResource NavigationText}"
+                                       FontSize="80"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="EndAndExpand"/>
+                    <Label Text="{Binding UserName}"
+                           TextColor="{StaticResource NavigationText}"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="EndAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Button Text="Breweries"
+                            Command="{Binding NavigateCommand}"
+                            CommandParameter="BreweriesPage"/>
+                    <Button Text="Add Brewer"
+                            Command="{Binding NavigateCommand}"
+                            CommandParameter="AddBrewery" />
+                    <Button Text="Add Beer"
+                            Command="{Binding NavigateCommand}"
+                            CommandParameter="AddBeer" />
+                </StackLayout>
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>

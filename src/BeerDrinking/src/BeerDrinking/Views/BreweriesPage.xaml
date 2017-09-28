@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             Title="{Binding Title}"
+             x:Class="BeerDrinking.Views.BreweriesPage">
+
+    <ListView ItemsSource="{Binding Breweries}"
+              IsRefreshing="{Binding IsBusy}"
+              SeparatorColor="{StaticResource Primary}"
+              HasUnevenRows="True"
+              IsPullToRefreshEnabled="False">
+        <ListView.Behaviors>
+            <behaviors:EventToCommandBehavior Command="{Binding BrewerySelectedCommand}"
+                                              EventName="ItemTapped"
+                                              EventArgsParameterPath="Item" />
+        </ListView.Behaviors>
+        <ListView.Header>
+            <ffimageloading:CachedImage Source="http://surlybrewing.com/content/uploads/2014/09/surly-old-brewery-picture.jpg"
+                                        HeightRequest="100"
+                                        DownsampleToViewSize="False"
+                                        Aspect="Fill"
+                                        HorizontalOptions="CenterAndExpand">
+                
+            </ffimageloading:CachedImage>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="15,5"
+                          BackgroundColor="{StaticResource Accent}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ffimageloading:CachedImage Source="{Binding Logo}"
+                                                    DownsampleToViewSize="False"
+                                                    Aspect="Fill"
+                                                    Margin="10"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    HeightRequest="60"
+                                                    Grid.RowSpan="2"
+                                                    Grid.Column="0">
+
+                        </ffimageloading:CachedImage>
+
+                        <Label Text="{Binding Name}"
+                               FontAttributes="Bold"
+                               Margin="10,20,0,10"
+                               VerticalOptions="EndAndExpand"
+                               Grid.Column="1"
+                               Grid.Row="0" />
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="10,0,20,10"
+                                     VerticalOptions="StartAndExpand"
+                                     Grid.Column="1"
+                                     Grid.Row="1">
+                            <Label Text="{Binding Location}"
+                                   FontSize="Small" />
+                            <Label Text="{Binding InBusinessSince,StringFormat='Since: {0:yyyy}'}"
+                                   FontSize="Small"
+                                   FontAttributes="Italic" />
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
